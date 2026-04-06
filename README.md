@@ -126,7 +126,7 @@ SELECT TABLE_NAME, COLUMN_NAME  FROM information_schema.COLUMNS  WHERE TABLE_SCH
 ---
 ### ОТВЕТ НА ЗАДАНИЕ 3
 
-##### Подключился к MySQL под пользователем sys_temp, но при первичном вводе команды для удаления прав на внесение, изменение и удаление данных из базы sakila отобразилась ОШИБКА:
+Подключился к MySQL под пользователем `sys_temp`, но при первичном вводе команды для удаления прав на внесение, изменение и удаление данных из базы `sakila` отобразилась ОШИБКА:
 
 ```sql
 REVOKE INSERT, UPDATE, DELETE ON sakila.* FROM 'sys_temp'@'localhost';
@@ -150,8 +150,8 @@ SHOW GRANTS FOR 'sys_temp'@'localhost';
 
 ![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
 
-##### На скриншоте видно, что пользователь `sys_temp` не имеет никих прав к базе 'sakila'.
-Назначаю принудительно права для на внесения, изменения и удаления данных из базы sakila.
+На скриншоте видно, что пользователь `sys_temp` не имеет никих прав к базе 'sakila'.
+Назначаю принудительно права для на внесения, изменения и удаления данных из базы `sakila`.
 
 ```sql
 GRANT INSERT, UPDATE, DELETE ON sakila.* TO 'sys_temp'@'localhost';
@@ -161,7 +161,7 @@ Query OK, 0 rows affected (0.02 sec)
 
 ### Скриншот запроса наличия прав у sys_temp после принудительного присвоения.
 
-![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
+![Скриншот-7](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img7.png)
 
 Терь пробую отобрать эти права:
 
@@ -172,10 +172,10 @@ Query OK, 0 rows affected (0.03 sec)
 
 Проверяю отсутвие прав.
 
-### Скриншот запроса наличия прав у `sys_temp` после удаления прав на внесение, изменение и удаление данных из базы sakila.
+### Скриншот запроса наличия прав у `sys_temp` после удаления прав на внесение, изменение и удаление данных из базы `sakila`.
 
-![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
+![Скриншот-8](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img8.png)
 
-##### Права у пользователя `sys_temp` удалены.
+Права у пользователя `sys_temp` удалены.
 ---
 
