@@ -122,4 +122,60 @@ SELECT TABLE_NAME, COLUMN_NAME  FROM information_schema.COLUMNS  WHERE TABLE_SCH
 
 3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-*Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+*Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.
+---
+### ОТВЕТ НА ЗАДАНИЕ 3
+
+##### Подключился к MySQL под пользователем sys_temp, но при первичном вводе команды для удаления прав на внесение, изменение и удаление данных из базы sakila отобразилась ОШИБКА:
+
+```sql
+REVOKE INSERT, UPDATE, DELETE ON sakila.* FROM 'sys_temp'@'localhost';
+ERROR 1044 (42000): Access denied for user 'sys_temp'@'localhost' to database 'sakila'
+```
+Подозреваю, что проблема в правах пользователя `sys_temp`. Для изменения прав доступа необходимо подключиться к MySQL с правами пользователя `root`.
+Подключаюсь с правами `root` и пробую изменить права для пользователя `sys_temp`.
+
+```sql
+REVOKE INSERT, UPDATE, DELETE ON sakila.* FROM 'sys_temp'@'localhost';
+ERROR 1141 (42000): There is no such grant defined for user 'sys_temp' on host 'localhost'
+```
+Получаю ответ, что у пользователя `sys_temp` не найдено запрашиваемых к удалению прав.
+Проверяю так ли это?
+
+```sql
+SHOW GRANTS FOR 'sys_temp'@'localhost';
+```
+
+### Скриншот запроса наличия прав у sys_temp.
+
+![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
+
+##### На скриншоте видно, что пользователь `sys_temp` не имеет никих прав к базе 'sakila'.
+Назначаю принудительно права для на внесения, изменения и удаления данных из базы sakila.
+
+```sql
+GRANT INSERT, UPDATE, DELETE ON sakila.* TO 'sys_temp'@'localhost';
+Query OK, 0 rows affected (0.02 sec)
+```
+Проверяю присвоеные права.
+
+### Скриншот запроса наличия прав у sys_temp после принудительного присвоения.
+
+![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
+
+Терь пробую отобрать эти права:
+
+```sql
+REVOKE INSERT, UPDATE, DELETE ON sakila.* FROM 'sys_temp'@'localhost';
+Query OK, 0 rows affected (0.03 sec)
+```
+
+Проверяю отсутвие прав.
+
+### Скриншот запроса наличия прав у `sys_temp` после удаления прав на внесение, изменение и удаление данных из базы sakila.
+
+![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
+
+##### Права у пользователя `sys_temp` удалены.
+---
+
