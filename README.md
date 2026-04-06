@@ -5,14 +5,27 @@
 ### Задание 1
 1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
+``` #### Команды при установке MySQL.
+kupriyanov@ntlg:~$wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb
+kupriyanov@ntlg:~$sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb
+kupriyanov@ntlg:~$sudo apt update
+kupriyanov@ntlg:~$sudo apt install mysql-server
+```
 ---
 ### ОТВЕТ НА ЗАДАНИЕ 1.1
 
 ![Скриншот-1](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img1.png)
 
+```
+kupriyanov@ntlg:~$sudo apt install mysql-server -y
+```
 ---
 
-1.2. Создайте учётную запись sys_temp. 
+1.2. Создайте учётную запись sys_temp.
+
+```
+mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'qazwsx099';
+``` 
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
@@ -25,6 +38,10 @@
 
 1.4. Дайте все права для пользователя sys_temp. 
 
+```
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
+```
+
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
 ---
@@ -33,7 +50,6 @@
 ![Скриншот-3](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img3.png)
 
 ---
-
 1.6. Переподключитесь к базе данных от имени sys_temp.
 
 Для смены типа аутентификации с sha2 используйте запрос: 
