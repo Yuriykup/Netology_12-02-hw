@@ -163,7 +163,7 @@ Query OK, 0 rows affected (0.02 sec)
 
 ![Скриншот-7](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img7.png)
 
-Терь пробую отобрать эти права:
+Теперь пробую отобрать эти права:
 
 ```sql
 REVOKE INSERT, UPDATE, DELETE ON sakila.* FROM 'sys_temp'@'localhost';
