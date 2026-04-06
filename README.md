@@ -153,7 +153,7 @@ SHOW GRANTS FOR 'sys_temp'@'localhost';
 
 ![Скриншот-6](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img6.png)
 
-На скриншоте видно, что пользователь `sys_temp` не имеет никих прав к базе 'sakila'.
+На скриншоте видно, что пользователь `sys_temp` не имеет никих прав к базе `sakila`.
 Назначаю принудительно права для на внесения, изменения и удаления данных из базы `sakila`.
 
 ```sql
