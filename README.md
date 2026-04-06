@@ -21,6 +21,7 @@ kupriyanov@ntlg:~$sudo apt install mysql-server -y
 ```sql
 CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 ``` 
+`Здесь и далее слово password отображается для сокрытия пароля. При работе с ДЗ использовался пароль с буквами и цифрами`
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
