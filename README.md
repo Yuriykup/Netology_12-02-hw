@@ -5,7 +5,7 @@
 ### Задание 1
 1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
-``` #### Команды при установке MySQL.
+``` Команды при установке MySQL.
 kupriyanov@ntlg:~$sudo apt update
 kupriyanov@ntlg:~$sudo apt install mysql-server -y
 ```
@@ -19,7 +19,7 @@ kupriyanov@ntlg:~$sudo apt install mysql-server -y
 1.2. Создайте учётную запись sys_temp.
 
 ```sql
-mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 ``` 
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
@@ -34,7 +34,7 @@ mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 1.4. Дайте все права для пользователя sys_temp. 
 
 ```sql
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 ```
 
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
@@ -51,23 +51,16 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 ```sql
 ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
-
-```sql
-mysql> ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-
-```
----
-
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
-
 ---
+
 1.7. Восстановите дамп в базу данных.
 
 ```sql
-mysql> CREATE DATABASE IF NOT EXISTS sakila
+CREATE DATABASE IF NOT EXISTS sakila
 
-mysql> SHOW DATABASES;
+SHOW DATABASES;
 +--------------------+
 | Database           |
 +--------------------+
@@ -90,8 +83,8 @@ kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-data
 
 
 ```sql
-mysql> USE sakila;
-mysql> SHOW TABLES;
+USE sakila;
+SHOW TABLES;
 ```
 ### СКРИНШОТ ДЛЯ ЗАДАНИЯ 1.8
 
@@ -107,6 +100,18 @@ mysql> SHOW TABLES;
 Название таблицы | Название первичного ключа
 customer         | customer_id
 ```
+---
+### ОТВЕТ НА ЗАДАНИЕ 2
+
+```sql
+SELECT TABLE_NAME, COLUMN_NAME  FROM information_schema.COLUMNS  WHERE TABLE_SCHEMA = 'sakila'    AND COLUMN_KEY = 'PRI'  ORDER BY TABLE_NAME;
+```
+
+### СКРИНШОТ ДЛЯ ЗАДАНИЯ 2
+
+![Скриншот-5](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img5.png)
+
+[Таблица](Sakila_table.xlsx)
 
 
 ## Дополнительные задания (со звёздочкой*)
