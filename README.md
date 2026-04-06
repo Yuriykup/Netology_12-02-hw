@@ -9,28 +9,25 @@
 kupriyanov@ntlg:~$wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb
 kupriyanov@ntlg:~$sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb
 kupriyanov@ntlg:~$sudo apt update
-kupriyanov@ntlg:~$sudo apt install mysql-server
+kupriyanov@ntlg:~$sudo apt install mysql-server -y
 ```
 ---
-### ОТВЕТ НА ЗАДАНИЕ 1.1
+### СКРИНШОТ ДЛЯ ЗАДАНИЯ 1.1
 
 ![Скриншот-1](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img1.png)
 
-```
-kupriyanov@ntlg:~$sudo apt install mysql-server -y
-```
 ---
 
 1.2. Создайте учётную запись sys_temp.
 
 ```
-mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'qazwsx099';
+mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 ``` 
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
 ---
-### ОТВЕТ НА ЗАДАНИЕ 1.3
+### СКРИНШОТ ДЛЯ ЗАДАНИЯ 1.3
 
 ![Скриншот-2](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img2.png)
 
@@ -45,7 +42,7 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
 ---
-### ОТВЕТ НА ЗАДАНИЕ 1.5
+### СКРИНШОТ ДЛЯ ЗАДАНИЯ 1.5
 
 ![Скриншот-3](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img3.png)
 
