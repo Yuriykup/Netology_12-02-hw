@@ -56,8 +56,12 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 mysql> ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
 ```
+---
 
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
+
+
+---
 1.7. Восстановите дамп в базу данных.
 
 ```sql
@@ -73,15 +77,28 @@ mysql> SHOW DATABASES;
 | sakila             |
 | sys                |
 +--------------------+
+```
 
 ```
 kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-schema.sql
 kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-data.sql
 ```
-
+---
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+
+
+```sql
+mysql> USE sakila;
+mysql> SHOW TABLES;
+```
+### СКРИНШОТ ДЛЯ ЗАДАНИЯ 1.8
+
+![Скриншот-4](https://github.com/Yuriykup/Netology_12-02-hw/blob/main/img/img4.png)
+
+---
+
 
 
 ### Задание 2
