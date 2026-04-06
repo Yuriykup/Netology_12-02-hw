@@ -77,7 +77,9 @@ SHOW DATABASES;
 kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-schema.sql
 kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-data.sql
 ```
+
 ---
+
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
 *Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
