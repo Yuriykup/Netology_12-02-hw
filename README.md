@@ -20,7 +20,7 @@ kupriyanov@ntlg:~$sudo apt install mysql-server -y
 
 1.2. Создайте учётную запись sys_temp.
 
-```
+```sql
 mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 ``` 
 
@@ -35,7 +35,7 @@ mysql> CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 
 1.4. Дайте все права для пользователя sys_temp. 
 
-```
+```sql
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 ```
 
@@ -53,6 +53,12 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 ```sql
 ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+
+```sql
+mysql> ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+```
+
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
 1.7. Восстановите дамп в базу данных.
