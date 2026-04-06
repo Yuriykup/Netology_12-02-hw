@@ -6,8 +6,6 @@
 1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
 ``` #### Команды при установке MySQL.
-kupriyanov@ntlg:~$wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb
-kupriyanov@ntlg:~$sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb
 kupriyanov@ntlg:~$sudo apt update
 kupriyanov@ntlg:~$sudo apt install mysql-server -y
 ```
@@ -60,8 +58,26 @@ mysql> ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password B
 ```
 
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
-
 1.7. Восстановите дамп в базу данных.
+
+```sql
+mysql> CREATE DATABASE IF NOT EXISTS sakila
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
++--------------------+
+
+```
+kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-schema.sql
+kupriyanov@ntlg:~/Downloads/sakila-db$ mysql -u sys_temp -p sakila < sakila-data.sql
+```
 
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 
